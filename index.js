@@ -39,11 +39,15 @@ app.get('/api/images', async (req, res) => {
 
         $('img').each((index, element) => {
             const imageUrl = $(element).attr('src');
-            if (imageUrl) {
+            const originalUrl = $(element).parent('a').attr('href'); // Lấy link gốc từ thẻ <a>
+            if (imageUrl && originalUrl) {
                 promises.push(
                     getImageSize(imageUrl).then(size => {
-                        if (size && size.width >= 400 && size.height >= 400) {
-                            imageUrls.push(imageUrl);
+                        if (size && size.width >= 10 && size.height >= 10) {
+                            imageUrls.push({
+                                imageUrl: imageUrl,
+                                originalUrl: originalUrl // Thêm link gốc vào kết quả
+                            });
                         }
                     })
                 );
