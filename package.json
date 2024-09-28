@@ -1,13 +1,14 @@
 {
-  "name": "google-image-search",
+  "name": "google-image-search-api",
   "version": "1.0.0",
-  "description": "A simple Node.js application to fetch images from Google.",
+  "description": "A simple API to fetch images from Google using Express.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "cheerio": "^1.0.0-rc.10"
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.18.2"
   }
 }
